@@ -1,9 +1,12 @@
 package io.cucumber.skeleton;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.WebDriver;
+
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import io.cucumber.java.en.Given;
@@ -18,7 +21,11 @@ public class StepDefinitions extends StepActions{
     @Before
     public void open_web_browser(){
         actions.firefoxBrowser();
-        System.out.println("Testing if the BEFORE TAG Works!!!!!");
+    }
+
+    @AfterStep
+    public void take_screenshot() throws IOException {
+        actions.takeScreenShot();
     }
 
     @After
